@@ -7,9 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Blockly</ion-title>
+    <ion-title>Programmation</ion-title>
   </ion-navbar>
-
+  <ion-item>
+    <ion-label>Niveau</ion-label>
+    <ion-select [(ngModel)]="this.level" (ionChange)="levelChange($event)">
+      <ion-option value="0" selected="true">Débutant</ion-option>
+      <ion-option value="1">Novice</ion-option>
+      <ion-option value="2">Confirmé</ion-option>
+      <ion-option value="3">Expert</ion-option>
+    </ion-select>
+  </ion-item>
 </ion-header>
 
 
@@ -18,6 +26,25 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button full (click)="generateCode()">Go</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button full color="secondary" (click)="testCode()">Essayer</button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button full (click)="sendCode()">Envoyer</button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button full icon-only (click)="shareCode()">
+          <ion-icon name="share"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button full icon-only (click)="loadCode()">
+          <ion-icon name="qr-scanner"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-footer>
